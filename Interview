@@ -121,4 +121,41 @@
     1、修饰成员变量，将其变为类的成员，从而实现所有对象对于该成员的共享
     2、修饰成员方法，将其变成类方法，可以直接使用“类名.方法名”方式调用
     3、静态块用法，将多个类成员一起初始化
-  1.21.
+  1.21.3*0.1==0.3返回值
+    false，因为有些浮点数不能完全精确的表示出来
+  1.22.a=a+b与a+=b的区别
+    +=操作符会进行隐式自动类型转换，而a=a+b不会自动进行类型转换
+    short s1 = 1;
+    s1 = s1 + 1;       错误，s1 + 1的运算结果是int类型，而s1是short类型，此时编译器报错
+    short s1 = 1；
+    s1 += 1；          正确，+=操作符会对右边的表达式结果强转匹配左边的数据类型
+  1.23.try catch finally，try里有return，finally还执行吗？
+    执行，并且finally的执行早于try里面的return
+    结论：
+      1、不管有没有出现异常，finally块中代码都会执行；
+      2、当try和catch中有return时，finally仍会执行；
+      3、finally是在return后面的表达式运算后执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，不管finally中的代码怎么样，返回的值都不会改变，仍然是之前保存的值），所以函数返回值实在finally执行前确定的；
+      4、finally中最好不要包含return，否则程序会提前退出，返回值不是try或catch中保存的返回值。
+  1.24.excption与error包结构
+      Java可抛出的结构分为三种类型：被检查的异常（CheckedException），运行时异常（RuntimeException），错误（Error）。
+      1、运行时异常
+        定义：RuntimeException及其子类都会被称为运行时异常。
+        特点：Java编译器不会检查它。倘若既没有通过throw声明抛出它，也没有try-catch语句捕获它，还是会编译通过。例如，除数为0时产生的ArithmeticException异常，数组越界产生的IndexOutOfBoundsException异常，fail-fast机制产生的ConcurrentModificationExecption异常
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
