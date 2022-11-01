@@ -141,6 +141,19 @@
       1、运行时异常
         定义：RuntimeException及其子类都会被称为运行时异常。
         特点：Java编译器不会检查它。倘若既没有通过throw声明抛出它，也没有try-catch语句捕获它，还是会编译通过。例如，除数为0时产生的ArithmeticException异常，数组越界产生的IndexOutOfBoundsException异常，fail-fast机制产生的ConcurrentModificationExecption异常
+        常见的五种运行时异常：ClassCastException（类转换异常）、IndexOutOfBoundsException（数组越界）、NullPointerException（空指针异常）、ArrayStoreException（数组存储异常，操作数组是类型不一致）、BufferOverflowException
+      2、被检查异常
+        定义：Exception类本身，以及Exception的子类中除了“运行时异常”之外的其他子类都属于被检查异常。
+        特点：Java编译器会检查它。此类异常，要么通过throws进行声明抛出，要么通过try-catch进行捕获处理，否则不能通过编译。例如。CloneNotSupportedException就属于被检查异常，当通过clone()接口去克隆一个对象，而该对象对应的类没有实现cloneable接口，就会抛出CloneNotSupportedException异常。被检查异常通常都是可以恢复的。
+        如：IOException、FileNotFoundException、SQLException。被检查的异常适用于那些不是因程序引起的错误情况，比如读取文件时文件不存在引发的FileNotFoundException。然而，不被检查的异常通常都是由于糟糕的编程引起的，比如：在对象引用时没有确保对象非空而引起的NullPointerException。
+      3、错误
+        定义：Error类及其子类
+        特点：和运行时异常一样，编译器也不会对错误进行检查。
+        当资源不足、约束失败、或是其他程序无法继续运行的条件发生时，就产生错误。程序本身无法修复这些错误的。例如，VirtualMachineError就属于错误。出现这种错误会导致程序终止运行。
+        OutOfMemoryError、ThreadDeath。
+  1.25.OOM你遇到哪些情况，SOF你遇到过哪些情况
+    OOM:OutOfMemoryError异常
+      
 
 
 
