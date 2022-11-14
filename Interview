@@ -152,7 +152,13 @@
         当资源不足、约束失败、或是其他程序无法继续运行的条件发生时，就产生错误。程序本身无法修复这些错误的。例如，VirtualMachineError就属于错误。出现这种错误会导致程序终止运行。
         OutOfMemoryError、ThreadDeath。
   1.25.OOM你遇到哪些情况，SOF你遇到过哪些情况
-    OOM:OutOfMemoryError异常
+    OOM（OutOfMemoryError异常）:
+      1、Java Heap溢出
+      2、虚拟机栈和本地方法栈溢出
+      3、运行时常量池溢出
+      4、方法区溢出
+    SOF（堆栈溢出StackOverFlow）：当应用程序递归太深而发生堆栈溢出时，抛出该错误。
+      栈溢出的原因：递归调用，大量循环或死循环，全局变量是否过多，数组、List、map数据过大。
       
 
 
